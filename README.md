@@ -1,5 +1,7 @@
 # International Students and Employment Opportunities in the US #
 
+Daiki Saito, Siew Fen Eow, Lindsey Mardona
+
 ## Background ##
 
 The University of California, Los Angeles (UCLA) is one of the universities with the highest number of international students, with numbers of at least 12,000. Even with the advantage of the name brand of UCLA, most of the international students face barriers in career opportunities as they are restricted in many areas due to bureaucratic restrictions that underpin the visa approval process during college and postgraduate. For instance, the Optional Practical Training (OPT) visa, which is commonly held among international students, only permits students who have non-STEM degrees to work in the US for a year, while students who have STEM degrees can apply for the STEM OPT extension for up to another two years. This enforces strict requirements for both the international students and their employers. In addition, because the majority of employers are not willing to sponsor a work visa because of the high application fees (~$6000), extra paperwork, and the time it takes to receive an approval from USCIS (up to 2 years), many international students are not able to find career opportunities during their study in the US. The psychological distress from being an international student is overwhelming and we hope to assist them to feel less alone in their circumstances.
