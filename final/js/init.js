@@ -22,7 +22,7 @@ let circleOptions = {
     fillOpacity: 0.8
 }
 
-const dataUrl = "https://docs.google.com/spreadsheets/d/1yf5CHkfRLPXI8r1qnHEVcSLtcBFRefxudmbkb2wY_q8/edit?usp=sharing"
+const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMp69QF0ErDoM8xCf_OZ5RNKlUlw2xMYKMLotWLjbQGsPk6NagJRmuDaFqeaid49qnppH9Vs6NTct4/pub?output=csv"
 
 // define the leaflet map
 const map = L.map('the_map').setView(mapOptions.center, mapOptions.zoom);
