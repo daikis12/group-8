@@ -1,6 +1,6 @@
 body{
     display: grid;
-    grid-template-rows: 50px auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas: "header" "main_content" "footer";
     background-color: #7afcbf62;
     gap: 10px;
@@ -8,6 +8,8 @@ body{
 
 header{
     grid-area: header;
+    display: grid;
+    grid-template-rows: 0.1fr 0.1fr 0.1fr;
     justify-self: center;
     align-self: center;
 }
@@ -18,15 +20,15 @@ header{
 
 .main{
     grid-area: main_content;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "main_map content";
-    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    /* grid-template-areas: "main_map content"; */
+    /* display: grid; */
 }
 
 #contents{
     grid-area: content;
     display: grid;
-    grid-template-rows: 3fr 1fr; 
+    grid-template-rows: 0.1fr 0.1fr 0.5fr;
     grid-template-areas: "buttonHome" "survey"
 }
 
