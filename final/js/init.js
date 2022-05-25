@@ -10,7 +10,7 @@ let layers = {
     "Undergraduate, 4-year": undergradfour,
     "Undergraduate, transfer student": undergradtransfer,
     "Master": master,
-    "Doctorate": doctorate
+    "Doctorate": doctorate,
 }
 
 let circleOptions = {
