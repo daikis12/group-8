@@ -22,12 +22,12 @@ header{
     grid-area: main_content;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "main_map content";
-    display: grid;
+    display: block;
 }
 
 #contents{
     grid-area: content;
-    display: grid;
+    display: block;
     grid-template-rows: 3fr 1fr; 
     grid-template-areas: "buttonHome" "survey"
 }
@@ -50,7 +50,6 @@ header{
 #surveyButton{
     padding: 15px 32px;
     margin: 10px;
-    background-color: #88d8fd;
     cursor: pointer;
 }
 
