@@ -37,6 +37,10 @@ header{
     grid-area: main_map;
 }
 
+#pages {
+    float: right;
+}
+
 #theSurvey{
     grid-area: survey;
     justify-self: center; /* added this to center the button in the div */
