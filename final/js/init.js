@@ -37,22 +37,22 @@ L.control.layers(null,layers).addTo(map)
 function addMarker(data){
     if(data['What program are you currently enrolled in at UCLA?'] == "Undergraduate, 4-year"){
         circleOptions.fillColor = "red"
-        undergradfour.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['If applicable, what companies did you work under and what were your job titles?']}</h2> <h3>${data['The summer after my junior year, I applied to 150 internships. I heard back from 3, and was ultimately rejected from all of them.']}</h3>`))
+        undergradfour.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['If applicable, what companies did you work under and what were your job titles?']}</h2> <h3>${data['Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?']}</h3>`))
         createButtons(data.lat,data.lng,data['If applicable, what companies did you work under and what were your job titles?'])
         }
     if(data['What program are you currently enrolled in at UCLA?'] == "Undergraduate, transfer student"){
         circleOptions.fillColor = "blue"
-        undergradtransfer.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['If applicable, what companies did you work under and what were your job titles?']}</h2> <h3>${data['The summer after my junior year, I applied to 150 internships. I heard back from 3, and was ultimately rejected from all of them.']}</h3>`))
+        undergradtransfer.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['If applicable, what companies did you work under and what were your job titles?']}</h2> <h3>${data['Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?']}</h3>`))
         createButtons(data.lat,data.lng,data['If applicable, what companies did you work under and what were your job titles?'])
         }
     if(data['What program are you currently enrolled in at UCLA?'] == "Master"){
         circleOptions.fillColor = "green"
-        master.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['If applicable, what companies did you work under and what were your job titles?']}</h2> <h3>${data['The summer after my junior year, I applied to 150 internships. I heard back from 3, and was ultimately rejected from all of them.']}</h3>`))
+        master.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['If applicable, what companies did you work under and what were your job titles?']}</h2> <h3>${data['Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?']}</h3>`))
         createButtons(data.lat,data.lng,data['If applicable, what companies did you work under and what were your job titles?'])
         }
     if(data['What program are you currently enrolled in at UCLA?'] == "Doctorate"){
         circleOptions.fillColor = "purple"
-        doctorate.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['If applicable, what companies did you work under and what were your job titles?']}</h2> <h3>${data['The summer after my junior year, I applied to 150 internships. I heard back from 3, and was ultimately rejected from all of them.']}</h3>`))
+        doctorate.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['If applicable, what companies did you work under and what were your job titles?']}</h2> <h3>${data['Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?']}</h3>`))
         createButtons(data.lat,data.lng,data['If applicable, what companies did you work under and what were your job titles?'])
         }
     return data
