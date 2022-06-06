@@ -1,21 +1,35 @@
+*{
+    font-family: 'Raleway', sans-serif;
+}
+
 body{
     display: auto;
     grid-template-rows: auto auto auto;
     grid-template-areas: "header" "main_content" "footer";
-    background-color: #E4E6F9;
+    background-color: #f2f2f2;
     gap: 10px;
     text-align: center
+}
+
+nav{
+    display: grid;
+    grid-template-areas: "logo" "nav";
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    align-content: middle;
 }
 
 header{
     grid-area: header;
     justify-self: center;
     align-self: center;
-    text-align: center
+    text-align: center;
+    color: #1a1a1a;
 }
 
 #footer{
     grid-area: footer;
+    padding-top: 10px;
 }
 
 .main{
@@ -35,9 +49,17 @@ header{
     grid-template-areas: "buttonHome" "survey"
 }
 
+.content{
+    width: 70%;
+    background-color: #98d1c9;
+    margin: 0 auto; 
+    padding: 50px;
+}
+
 #the_map{
     height:80vh;
     grid-area: main_map;
+    z-index: 0;
 }
 
 #pages {
@@ -66,3 +88,126 @@ header{
     display:grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
+.button {
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #274277;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.buttonActive {
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #8da5d1;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+  
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+#surveyFrame{
+    background-color: white;
+}
+/* The Modal (background) */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    /* left: 0; */
+    /* top: 0; */
+
+    margin: 5px auto;
+    width: 100%;
+    padding: 10px;
+    /* max-width:100%;  */
+    /* //for responsive purposes. */
+
+    width: 100%;  
+    /* Full width */
+    height: 100%; 
+    /* Full height  */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    grid-column: 1;
+    grid-row: 1/span 2;
+    /* background-color: #fefefe; */
+    margin: 0% auto; 
+    /* 15% from the top and centered */
+    padding: 20px;
+    /* border: 1px solid #888; */
+    width: 100%; 
+    /* Could be more or less, depending on screen size */
+    height:100vh;
+  }
+
+#modalSpacer{
+    grid-column: 1;
+    grid-row: 1/span 2;
+    /* background-color: #fefefe; */
+    margin: 0% auto; 
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; 
+    /* Could be more or less, depending on screen size */
+    height:100vh;
+}
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }

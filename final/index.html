@@ -9,51 +9,101 @@
 
         <!-- Leaflet's css-->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+        <!-- bring in font awesome -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- 😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡 -->
+        <link rel="stylesheet" href="styles/leaflet-sidebar.css">
+        <link rel="stylesheet" href="styles/leaflet-sidebar.min.css">
+        <!-- 😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡 -->
 
         <!-- Leaflet's JavaScript-->
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
         <script src="js/papaparse.min.js"></script>
+        <!-- 😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡 -->
+        <script src="js/leaflet-sidebar.js"></script>
+        <script src="js/leaflet-sidebar.min.js"></script>
+        <!-- 😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡😡 -->
     </head>
 
     <body>
-        <header>
-            <h1>International Students Employment/Internship Opportunities</h1>
-            <div id="menuButtons">
-                <a href="index.html">Home</a>
-                <a href="background.html">Background</a>
-                <a href="community.html">Community</a>
-                <a href="questions.html">Questions</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScMGGJbtt60BQ24EZNzAC_Dhnv-Pi98HbOHn3RiyLw1ZNl7yQ/viewform?usp=sf_link">Survey</a>
-            </div>
-            <p>Most of the international students constantly face barriers in career opportunities, as they encounter restrictions in many areas due to eligibility. The psychological distress from being an international student is overwhelming, and we hope to assist them in feeling less alone in their circumstances.</p>
-        
-            <div id="placeForButtons"></div>
-            <!-- Be sure to use your own survey here!!!!!!! -->
-            <div id="theSurvey">
-                <!-- moved the survey out of its iframe and into a button -->
-                <div id="surveyButton">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScMGGJbtt60BQ24EZNzAC_Dhnv-Pi98HbOHn3RiyLw1ZNl7yQ/viewform?embedded=true">📝Survey</a>
-                </div>
-            </div>
+        <div id="surveyModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <!-- <div id="survey"> -->
+                    <!-- <div>
+                    </div> -->
+                    <iframe id="surveyFrame" src="https://docs.google.com/forms/d/e/1FAIpQLScMGGJbtt60BQ24EZNzAC_Dhnv-Pi98HbOHn3RiyLw1ZNl7yQ/viewform?embedded=true"  width="650" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>    
 
+                <!-- </div>                         -->
+            </div>
+        </div>
+        <nav>
+            <a href="index.html"><img src="logo.png" alt="homepage-logo" style="width:auto;height:125px;"></a>
+            <div id="menuButtons">
+                <a href="index.html" class="button" style="vertical-align:middle"><span>Home</span></a>
+                <a href="background.html" class="button" style="vertical-align:middle"><span>About</span></a>
+
+                <!-- Trigger/Open The Modal -->
+                <button id="surveyBtn" class="button" style="vertical-align:middle"><span>Survey</span></button>
+            </div>
+        </nav>
+        <header>
+            <h1>Access to Opportunity:  
+                <span style="color: #2e9285">Barriers</span>
+                Faced by International Students 
+                <span style="color: #2e9285">Across</span>
+                U.S. 
+                <span style="color: #2e9285">Borders</span></h1>
         </header>
 
         <div class="main">
             <div id="contents">
 
                 <div id="slideshow"></div>
-                <div id="mapButtons"></div>
-                <!-- Be sure to use your own survey here!!!!!!! -->
-                <!-- <div id="theSurvey"> -->
-                    <!-- moved the survey out of its iframe and into a button -->
-                    <!-- <div id="surveyButton">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScMGGJbtt60BQ24EZNzAC_Dhnv-Pi98HbOHn3RiyLw1ZNl7yQ/viewform?usp=sf_link">📝Survey</a>
-                    </div>
-                </div> -->
+
+
             </div>
 
-            <div id="the_map"></div>
+            <div id="the_map">
+                <div id="sidebar" class="leaflet-sidebar collapsed">
+                    
+                    <!-- Nav tabs -->
+                    <div class="leaflet-sidebar-tabs">
+                        
+                        <ul role="tablist"> <!-- bottom aligned tabs -->
+                            <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+                        </ul>
+                    </div>
+                
+                    <!-- Tab panes -->
+
+                    
+                    <div class="leaflet-sidebar-content">
+                        <div class="leaflet-sidebar-pane" id="home">
+                            <h1 class="leaflet-sidebar-header">
+                                sidebar-v2
+                                <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
+                            </h1>
+                            <p>A responsive sidebar for mapping libraries</p>
+                        </div>
+                
+                        <div class="leaflet-sidebar-pane" id="messages">
+                            <h1 class="leaflet-sidebar-header">Messages<div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                        </div>
+                
+                        <div class="leaflet-sidebar-pane" id="profile">
+                            <h1 class="leaflet-sidebar-header">Profile<div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        
         <div id="footer">
             Copyright(2022)
         </div>
