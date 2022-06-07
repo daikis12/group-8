@@ -56,6 +56,21 @@ header{
     padding: 50px;
 }
 
+.aboutContent{
+    width: 70%;
+    background-color: #98d1c9;
+    margin: 0 auto; 
+    padding: 50px;
+    grid-row: 2;
+}
+
+.aboutMain{
+    grid-area: main_content;
+    grid-template-areas: "content";
+    display: grid;
+    grid-template-rows: 0.2fr 0.6fr 0.2fr;
+}
+
 #the_map{
     height:80vh;
     grid-area: main_map;
@@ -92,7 +107,7 @@ header{
 .button {
     display: inline-block;
     border-radius: 20px;
-    background-color: #274277;
+    background-color: #276477;
     border: none;
     color: #FFFFFF;
     text-align: center;

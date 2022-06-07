@@ -1,27 +1,6 @@
 // declare variables
 let mapOptions = {'center': [34.0709,-118.444],'zoom':5}
 
-let undergradfour = L.featureGroup();
-let undergradtransfer = L.featureGroup();
-let master = L.featureGroup();
-let doctorate = L.featureGroup();
-
-let layers = {
-    "<svg height='10' width='10'><circle cx='5' cy='5' r='4' stroke='black' stroke-width='1' fill='Crimson' /></svg> Undergraduate, 4-year": undergradfour,
-    "<svg height='10' width='10'><circle cx='5' cy='5' r='4' stroke='black' stroke-width='1' fill='MediumSpringGreen' /></svg> Undergraduate, transfer student": undergradtransfer,
-    "<svg height='10' width='10'><circle cx='5' cy='5' r='4' stroke='black' stroke-width='1' fill='YellowGreen' /></svg> Master": master,
-    "<svg height='10' width='10'><circle cx='5' cy='5' r='4' stroke='black' stroke-width='1' fill='LightSalmon' /></svg> Doctorate": doctorate,
-}
-
-let circleOptions = {
-    radius: 4.5,
-    fillColor: "#ff7800",
-    color: "#000",
-    weight: 1,
-    opacity: 3,
-    fillOpacity: 0.8
-}
-
 let qCompanies = 'If applicable, what companies did you work under and what were your job titles?';
 let qChallenges = 'Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?';
 
@@ -38,10 +17,10 @@ L.tileLayer('https://{s}.tile.jawg.io/jawg-light/{z}/{x}/{y}{r}.png?access-token
 	accessToken: 'LKTW24tyB1L58EkjGQmMI14e8Mv94UwoVCgXguxoILneySdi1Q3iyB4wGvg1U8tY'
 }).addTo(map);
 
-// L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-// 	maxZoom: 19,
-// 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
-// }).addTo(map);
+// let statesLayer = L.featureGroup()
+
+// statesLayer.addLayer(L.geoJson(statesData))
+// statesLayer.addTo(map)
 
 var sidebar = L.control.sidebar({
     autopan: false,       // whether to maintain the centered map point when opening the sidebar
@@ -50,13 +29,11 @@ var sidebar = L.control.sidebar({
     position: 'right',     // left or right
 }).addTo(map);
 
-// let someDomNode = document.getElementById("surveyBtn");
-
 
 var panelContent = {
     id: 'dietakoyaki',                     // UID, used to access the panel
-    tab: '<i class="fa fa-gear"></i>',  // content can be passed as HTML string,
-    pane: '👧🔪👦🩸🐙🩸 <iframe src="https://i.giphy.com/media/xT1Ra5Gy397nfkSz6g/giphy.webp" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>',        // DOM elements can be passed, too
+    tab: '<i class="fa fa-bars"></i>',  // content can be passed as HTML string,
+    pane: ':(',        // DOM elements can be passed, too
     title: 'Dietakoyaki',              // an optional pane header
     position: 'top'                  // optional vertical alignment, defaults to 'top'
 };
@@ -71,10 +48,6 @@ var panelContent2 = {
 
 sidebar.addPanel(panelContent);
 sidebar.addPanel(panelContent2);
-
-
-// add layer control box
-L.control.layers(null,layers,{collapsed:false,position:'bottomleft'}).addTo(map);
 
 // Get the modal
 var modal = document.getElementById("surveyModal");
@@ -102,26 +75,6 @@ window.onclick = function(event) {
   }
 }
 
-function addMarker(data){
-    if(data['What program are you currently enrolled in at UCLA?'] == "Undergraduate, 4-year"){
-        circleOptions.fillColor = "Crimson"
-        undergradfour.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data[qCompanies]}</h2> <h3>${data[qChallenges]}</h3>`))
-        }
-    if(data['What program are you currently enrolled in at UCLA?'] == "Undergraduate, transfer student"){
-        circleOptions.fillColor = "MediumSpringGreen"
-        undergradtransfer.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data[qCompanies]}</h2> <h3>${data[qChallenges]}</h3>`))
-        }
-    if(data['What program are you currently enrolled in at UCLA?'] == "Master"){
-        circleOptions.fillColor = "YellowGreen"
-        master.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data[qCompanies]}</h2> <h3>${data[qChallenges]}</h3>`))
-        }
-    if(data['What program are you currently enrolled in at UCLA?'] == "Doctorate"){
-        circleOptions.fillColor = "LightSalmon"
-        doctorate.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data[qCompanies]}</h2> <h3>${data[qChallenges]}</h3>`))
-        }
-    return data
-}
-
 function loadData(url){
     Papa.parse(url, {
         header: true,
@@ -130,20 +83,28 @@ function loadData(url){
     })
 }
 
+let statesCount = {}
+
+
 function processData(results){
     console.log(results)
     results.data.forEach(data => {
         if(!(data['lat'] == 0 && data['lng'] == 0)){
             console.log(data)
-            addMarker(data)
+            // 🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌
+            statesCount[data['state']] = (statesCount[data['state']] || 0) + 1 ;
+            // ( う-´)づ︻╦̵̵̿╤── \(˚☐˚”)/ 
+            // 🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌
+            // statesData[data['state']] += 1;
+            // statesData.features.forEach(state => addTestimonyCounts(state));
+            // state.properties.name == [data['state']] += 1;
         }
     })
-    undergradfour.addTo(map) // add our layers after markers have been made
-    undergradtransfer.addTo(map) // add our layers after markers have been made  
-    master.addTo(map)
-    doctorate.addTo(map)
-    let allLayers = L.featureGroup([undergradfour,undergradtransfer,master,doctorate]);
-    map.fitBounds(allLayers.getBounds());
+    countTestimonies(statesCount);
+    mapData = filterData();
+    processGeojson(mapData);
+    addLegend()
+    map.fitBounds(geojson.getBounds());
 }
 
 function closeModal(e){
@@ -175,55 +136,189 @@ loadData(dataUrl)
 //     .then(response => response.json())
 //     .then(json => console.log('yoooooooooooo!'))
 
-geoJsonStyle = {
-    weight: 2,
-    opacity: 1,
-    color: 'gray',
-    fillOpacity:0.0
+// let geoJsonStyle = {
+//     weight: 2,
+//     opacity: 1,
+//     color: 'gray',
+//     fillOpacity:0.0
+// }
+
+// let geojson
+// fetch("js/countries.geo.js") 
+//     .then(response =>{ 
+//         return response.json();})
+//         .then(data =>{
+//             geojson = L.geoJson(data,{style:geoJsonStyle,onEachFeature: onEachFeature}).addTo(map)
+//             console.log('loading geojson')
+//         })
+//         // Basic Leaflet method to add GeoJSON data
+
+// function highlightFeature(e) {
+//     var layer = e.target;
+
+//     layer.setStyle({
+//         weight: 5,
+//         // fillColor: 'none',
+//         color: 'crimson', // the blood of daiki
+//         dashArray: '',
+//         fillOpacity: 0.0
+
+//     });
+
+//     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+//         layer.bringToFront();
+//     }
+// }
+
+// function resetHighlight(e) {
+//     geojson.resetStyle(e.target);
+// }
+
+// function onEachFeature(feature, layer) {
+//     layer.on({
+//         mouseover: highlightFeature,
+//         mouseout: resetHighlight,
+//         // click: zoomToFeature
+//     });
+// }
+
+// control that shows state info on hover
+var info = L.control({position: 'bottomleft'});
+
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info');
+    this.update();
+    return this._div;
+};
+
+info.update = function (props) {
+    console.log(props)
+    this._div.innerHTML = '<div class="propUp"><h4>Work Opportunities by State</h4>' +  (props ?
+        '<b>' + props.name + '</b><br /><div class="animate-character">' + props.testimonyCount + ' respondent(s)</div>' : 'Hover over a state</div>');
+};
+
+info.addTo(map);
+
+var geojson;
+
+// get color depending on population density value
+function getColor(d) {
+    return d > 6  ? '#01aea5' :
+        d > 4  ? '#01e3d8' :
+        d > 2   ? '#8cdbf2' :
+        d > 0   ? '#bcfffb' : '#d7fffd';
 }
 
-
-
-let geojson
-fetch("js/countries.geo.js") 
-    .then(response =>{ 
-        return response.json();})
-        .then(data =>{
-            geojson = L.geoJson(data,{style:geoJsonStyle,onEachFeature: onEachFeature}).addTo(map)
-            console.log('loading geojson')
-        })
-        // Basic Leaflet method to add GeoJSON data
+function style(feature) {
+    return {
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7,
+        fillColor: getColor(feature.properties.testimonyCount)
+    };
+}
 
 function highlightFeature(e) {
     var layer = e.target;
 
     layer.setStyle({
-        weight: 5,
-        // fillColor: 'none',
-        color: 'crimson', // the blood of daiki
+        weight: 3,
+        color: '#666',
         dashArray: '',
-        fillOpacity: 0.0
-
+        fillOpacity: 0.7
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
+
+    info.update(layer.feature.properties);
 }
 
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
+    info.update();
 }
+
+let sidebarStatus = false;
+
+function focusFeature(e) {
+    map.fitBounds(e.target.getBounds());
+    let clickedName = e.target.feature.properties.name;
+    console.log(e.target.feature.properties.name)
+
+    if (sidebarStatus == false){
+        sidebarStatus = true;
+        populatePanel(clickedName)
+        // populatePanel(clickedName)
+        sidebar.open('dietakoyaki');
+    }
+    else{
+        sidebarStatus = false;
+        sidebar.close();
+        map.fitBounds(geojson.getBounds());
+    }
+}
+
+function populatePanel(stateInfo){
+    panelContent = `<h3>${stateInfo}</h3>👧🔪👦🩸🐙🩸 <iframe src="https://i.giphy.com/media/xT1Ra5Gy397nfkSz6g/giphy.webp" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>`
+    panelContent += `<div class="pyro"><div class="before"></div><div class="after"></div></div>`
+    document.getElementById("dietakoyaki").innerHTML = panelContent;
+    console.log(panelContent)
+}
+
+map.doubleClickZoom.disable(); 
 
 function onEachFeature(feature, layer) {
     layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlight,
-        // click: zoomToFeature
+        click: focusFeature
     });
 }
 
-// geojson = L.geoJson(statesData, {
-//     style: style,
+
+
+map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+
+function addLegend(){
+    var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function (map) {
     
-// }).addTo(map);
+        var div = L.DomUtil.create('div', 'info legend');
+        var grades = [0, 2, 4, 6];
+        var labels = [];
+        var from, to;
+        // labels.push(`<i style="background:'#49e8df'"></i>) < 1`);
+        // labels.push(`<i style="background:'#8cdbf2'"></i>) 1-5`);
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+    
+            labels.push(
+                '<i style="padding:5px;background:' + getColor(from + 1) + '"></i> ' +
+                from + (to ? '&ndash;' + to : '+'));
+        }
+    
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+    legend.addTo(map);
+}
+
+function processGeojson(targetGeoJson){
+    /* global statesData */
+    geojson = L.geoJson(targetGeoJson, {
+        style: style,
+        onEachFeature: onEachFeature
+    }).addTo(map);
+    
+}
+
+
+
+
+
