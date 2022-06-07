@@ -17,6 +17,8 @@ We hope that by mapping the stories of graduating international students at UCLA
 
 ## 🧑‍🤝‍🧑 Who is being empowered?<a name="empowered_Barriers_Across_Borders"></a> ##
 
+Getting an internship or a post-graduation career is one of the main objectives of students at UCLA or any university. While everyone struggles at some level with these objectives, it is particularly difficult, if not impossible, for international students due to their immigration status. Our project sets out to help provide resources for this group of international students, where little or no resources exist today. This is important because it affords these students in the US the opportunities that might be part of their dream, their goals, or even how they want to start their lives in a new country. We have personally met many international students that stress more over finding an internship than getting a good grade in their class. We believe this project will have a significant impact in not only providing very important and useful information for finding an internship or job but also bringing the international community closer in our shared pursuits of a better life.
+
 ## 🧑‍💻 What technology was used?<a name="technology_Barriers_Across_Borders"></a> ##
 
 The website for the project was built using HTML, Javascript, and CSS. Leaflet, an open-source JavaScript library for mobile-friendly interactive maps, was used to create the map and display the user stories. Information was collected using Google Forms, and the locations were geocoded in Google Sheets. 
