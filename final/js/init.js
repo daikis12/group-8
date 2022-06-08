@@ -269,7 +269,7 @@ function populatePanel(stateInfo){
     let data2loop = filterSurveyData(stateInfo);
     let count = 0;
     console.log(data2loop)
-    panelContent = `<div> <h3>${stateInfo}</h3><p> The experience of international students at UCLA who face career-related opportunity barriers </p </div>`
+    panelContent = `<div> <h1>${stateInfo}</h1><h3> The experience of international students at UCLA who face career-related opportunity barriers </h3> </div>`
     panelContent += `<div class="pyro"><div class="before"></div><div class="after"></div></div>`
     data2loop.forEach(element => addtoPanel(element));
     console.log(panelContent)
@@ -279,8 +279,7 @@ function addtoPanel(data) {
     console.log(data)
     count = count + 1
     panelContent += `<div class="card">
-    <h2>Testimonial ${count}</h2>
-    <p class="left">Company name and/or job title: ${data["If applicable, what companies did/do you work under and what were/are your job titles? "]}</p>
+    <h2>${data["If applicable, what companies did/do you work under and what were/are your job titles? "]}</h2>
     <p class="left">Challenge: ${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}</p>
     <p class="left">Any helpful resource: ${data["Are there any people, campus resources, or online resources that you have found helpful and/or utilized to find employment/internship opportunities in the US?"]}</p>
     <p class="left">Advice for current international students: ${data["Do you have any advice for current international students at UCLA or is there anything else you'd like to share about your experiences? "]}</p>
