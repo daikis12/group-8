@@ -72,7 +72,7 @@ header{
 }
 
 #the_map{
-    height:80vh;
+    height:75vh;
     grid-area: main_map;
     z-index: 0;
 }
