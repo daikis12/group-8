@@ -280,7 +280,7 @@ function addtoPanel(data) {
     count = count + 1
     panelContent += `<div class="card">
     <h3>Stories from: ${data["If applicable, what companies did/do you work under and what were/are your job titles? "]}</h3>
-    <p class="left">Challenge: ${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}</p>
+    <p class="left">\"${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}\"</p>
     <p class="left">Any helpful resource: ${data["Are there any people, campus resources, or online resources that you have found helpful and/or utilized to find employment/internship opportunities in the US?"]}</p>
     <p class="left">Advice for current international students: ${data["Do you have any advice for current international students at UCLA or is there anything else you'd like to share about your experiences? "]}</p>
     </div>`
