@@ -9,7 +9,6 @@
 * [Who is being empowered?](#empowered_Barriers_Across_Borders)
 * [What technology was used?](#technology_Barriers_Across_Borders)
 * [How it can be repurposed?](#repurposed_Barriers_Across_Borders)
-* [Features](#features_Barriers_Across_Borders)
 * [ScreenShots](#screenshots_Barriers_Across_Borders)
 
 ## 🌐 Objective<a name="objective_Barriers_Across_Borders"></a> ##
@@ -26,11 +25,10 @@ The website for the project was built using HTML, Javascript, and CSS. Leaflet, 
 
 ## ❔ How it can be repurposed?<a name="repurposed_Barriers_Across_Borders"></a> ##
 
-The potential long-term impacts of this project are both to give a voice to graduating international students who have experienced the employment opportunity barriers directly, as well as to help newer international students at UCLA to revisit the website and gain insight from those students regarding a direction to go in while looking for an entry into the workforce. If successful, part of our project can potentially be given to platforms such as the UCLA Dashew Center or the UCLA Career Center, and student-based organizations at UCLA such as alumni associations and International Student Association (ISA) at UCLA which focus on international students, to expand on this project and assist the graduating students both practically and mentally. For example, these organizations could potentially conduct workshops for international students by using our project and letting them know of the common struggles that they are likely to go through when attempting to find internships and/or career opportunities upon graduation. They can also use the information to give students better leads to finding jobs.
+Our website has the potential for empowering many international students for years to come since the more users we have, the larger the data samples we can collect. We hope that our platform continues to collect authentic information about internship/employment opportunities from international students explaining their real experiences going through the process. We also hope to receive feedbacks about our website so that we can edit it to improve user satisfaction and increase the number of users. 
+Since our targeted group is international students at UCLA, we hope to distribute our website link to UCLA Dashew Center so that it can be shared with incoming international students during the summer orientation. This is a great opportunity for them to learn about the difficulty of securing internships and jobs in the US as a foreign student and start connecting with people. Also, the Global Siblings Program, hosted by UCLA Dashew Center, is an annual event, where numerous international students interact with each other, which is an ideal opportunity to let them know about our website. 
 
-## Features<a name="features_Barriers-Across_Borders"></a> ##
-
-## 🗺️ Screenshots<a name="screenshots_Barriers_Across_Borders"></a> ##
+## 🗺️ Web Features & Screenshots<a name="screenshots_Barriers_Across_Borders"></a> ##
 
 ## Acknowledgements
 * This project was created for Asian Am 191A: Web Development and GIS for Social Change: Critical Data for Transforming Civil Society
