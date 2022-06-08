@@ -2,7 +2,7 @@
 ### by Daiki Saito, Siew Fen Eow (Angeline), Lindsey Mardona
 > Our project aims to provide a platform with international students, where they can share their experiences and give advice to current and future students about internship and employment opportunities in the United States as a student-visa holder. We recognize that finding those opportunities, on top of being a foreign student, living in an unfamiliar environment, is a significant challenge for many international students. Therefore, we hope that our platform allows students to feel connected to other students who have gone through the same process and helps them navigate through the difficult challenge of finding postgraduate opportunities as a foreign student. Our map contains information about internship and career opportunities that international students have attained, and it is specific to each state in the country. This allows students to learn about others’ experiences in specific states in which they are interested in pursuing postgraduate careers. 
 >
-> Live demo [_here_](https://www.example.com).
+> Live demo [_here_][(https://www.example.com)](https://lindseymardona.github.io/group-8/final/index.html).
 
 ## Table of Contents ##
 * [Objective](#objective_Barriers_Across_Borders)
