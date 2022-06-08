@@ -202,7 +202,7 @@ info.addTo(map);
 
 var geojson;
 
-// get color depending on population density value
+// get color depending on respondent count value
 function getColor(d) {
     return d > 6  ? '#01aea5' :
         d > 4  ? '#01e3d8' :
@@ -263,21 +263,45 @@ function focusFeature(e) {
     }
 }
 
-let count = 0
-
-function populatePanel(stateInfo){
-    let data2loop = filterSurveyData(stateInfo);
-    let count = 0;
+function populatePanel(stateName){
+    let data2loop = filterSurveyData(stateName);
+    let stateColor = getColor(statesCount[stateName])
     console.log(data2loop)
-    panelContent = `<div> <h1>${stateInfo}</h1><h3> The experience of international students at UCLA who face career-related opportunity barriers </h3> </div>`
+    panelContent = `<div> <h1>${stateName}</h1> <h4> Hover over a card to read more from a testimony. </h4> </div>`
     panelContent += `<div class="pyro"><div class="before"></div><div class="after"></div></div>`
-    data2loop.forEach(element => addtoPanel(element));
+    data2loop.forEach(element => addFlipCardToPanel(element,stateColor));
     console.log(panelContent)
 }
 
-function addtoPanel(data) {
+
+function addFlipCardToPanel(data,color) {
     console.log(data)
-    count = count + 1
+
+    panelContent += `
+    <div class="flip-card" style="background-color:${color}">
+        <div class="flip-card-inner">
+            <div class="flip-card-front style="background-color:${color}">
+                Story from:
+                <h2>${data["If applicable, what companies did/do you work under and what were/are your job titles? "]}</h2>
+                <p class="left">\"${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}\"</p>
+            </div>
+            <div class="flip-card-back style="background-color:${color}">
+                Any helpful resources?
+                <p class="left">${data["Are there any people, campus resources, or online resources that you have found helpful and/or utilized to find employment/internship opportunities in the US?"]}</p>
+                Any advice for others?
+                <p class="left">${data["Do you have any advice for current international students at UCLA or is there anything else you'd like to share about your experiences? "]}</p>
+            </div>
+        </div>
+    </div>`
+
+    document.getElementById("dietakoyaki").innerHTML = panelContent;
+}
+
+
+
+function addCardToPanel(data) {
+    console.log(data)
+
     panelContent += `<div class="card">
     <h3>Stories from: ${data["If applicable, what companies did/do you work under and what were/are your job titles? "]}</h3>
     <p class="left">\"${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}\"</p>
@@ -285,16 +309,6 @@ function addtoPanel(data) {
     <p class="left">Advice for current international students: ${data["Do you have any advice for current international students at UCLA or is there anything else you'd like to share about your experiences? "]}</p>
     </div>`
 
-    // panelContent += `<div class="flip-card">
-    // <div class="flip-card-inner">
-    // <div class="flip-card-front">
-    // <div class="flip-card-back">
-    // <h4>Story from:</h4>
-    // <h2>${data["If applicable, what companies did/do you work under and what were/are your job titles? "]}</h2>
-    // <p class="left">${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}</p>
-    // <p class="left">Any helpful resource: ${data["Are there any people, campus resources, or online resources that you have found helpful and/or utilized to find employment/internship opportunities in the US?"]}</p>
-    // <p class="left">Advice for current international students: ${data["Do you have any advice for current international students at UCLA or is there anything else you'd like to share about your experiences? "]}</p>
-    // </div>`
 
     document.getElementById("dietakoyaki").innerHTML = panelContent;
 }
@@ -371,4 +385,13 @@ window.onload = function() {
     modal2.style.display = "block";
   };
 
-window.addEventListener("resize", scroller.resize);
+// window.addEventListener("resize", scroller.resize);
+
+
+// function googleTranslateElementInit() {
+//   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+// }
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
