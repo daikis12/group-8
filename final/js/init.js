@@ -102,6 +102,7 @@ function processData(results){
     })
     countTestimonies(statesCount);
     mapData = filterData();
+    surveyData = results.data;
     processGeojson(mapData);
     addLegend()
     map.fitBounds(geojson.getBounds());
@@ -263,11 +264,17 @@ function focusFeature(e) {
 }
 
 function populatePanel(stateInfo){
-    panelContent = `<h3>${stateInfo}</h3>👧🔪👦🩸🐙🩸 <iframe src="https://i.giphy.com/media/xT1Ra5Gy397nfkSz6g/giphy.webp" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>`
+    let data2loop = filterSurveyData(stateInfo);
+    /* data2loop.forEach(); */
+    panelContent = `<h3>${stateInfo}</h3><p> The experience of international students at UCLA who face career-related opportunity barriers </p>`
     panelContent += `<div class="pyro"><div class="before"></div><div class="after"></div></div>`
+    panelContent += `<div class="card"> ${stateInfo} </div>`
+    panelContent += `<div class="card"> ${stateInfo} </div>`
     document.getElementById("dietakoyaki").innerHTML = panelContent;
     console.log(panelContent)
 }
+
+
 
 map.doubleClickZoom.disable(); 
 
