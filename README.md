@@ -73,7 +73,7 @@ Since our site was built on open source tools for accessibility purposes, if thi
 
 ### An overview of hover over a state
 - This is a screenshot of our homepage when we hover over a state, in this case, California.
-![State testimonies](./final/actual_testimonials.png)
+![State testimonies](./final/actual_testimonies.png)
 
 - This is an example of the testimonies that shows that some of the survey-takers worked or did their internships in California and their experiences, as well as helpful information or advice for future users of the website. 
 ![California testimonies](./final/california_testimonials.png)
