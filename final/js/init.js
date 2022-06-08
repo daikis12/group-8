@@ -41,10 +41,10 @@ var panelContent = {
 };
 
 var panelContent2 = {
-    id: 'whatsup',                     // UID, used to access the panel
+    id: 'info',                     // UID, used to access the panel
     tab: '<i class="fa fa-question"></i>',  // content can be passed as HTML string,
     pane: 'WHASSSSSSAAAUPPP',        // DOM elements can be passed, too
-    title: 'WHAZZAAAAA',              // an optional pane header
+    title: 'Reading The Testimonies',              // an optional pane header
     position: 'top'                  // optional vertical alignment, defaults to 'top'
 };
 
@@ -85,6 +85,7 @@ function processData(results){
     // addLegend();
     map.fitBounds(geojson.getBounds());
     populatePanel(undefined);
+    populateInfoPanel();
     sidebar.open('testimonies');
 }
 
@@ -158,15 +159,38 @@ function addFlipCardToPanel(data,color,disable=false) {
                 <p class="left">\"${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}\"</p>
             </div>
             <div class="flip-card-back style="background-color:${color}">
-                Any helpful resources?
+                <h4>Any helpful resources?</h4>
                 <p class="left">${data["Are there any people, campus resources, or online resources that you have found helpful and/or utilized to find employment/internship opportunities in the US?"]}</p>
-                Any advice for others?
+                <h4>Any advice for others?</h4>
                 <p class="left">${data["Do you have any advice for current international students at UCLA or is there anything else you'd like to share about your experiences? "]}</p>
             </div>
         </div>
     </div>`
     fireFoxFixForFantasticFolks(color)
     document.getElementById("testimonies").innerHTML = panelContent;
+}
+
+function populateInfoPanel(){
+    color = '#80C0C0'
+    panelContent = 
+    `<div> <h1>Reading the Testimonies</h1></div>
+    <div> <h3>The testimonies submitted by users are displayed in a double-sided card format.</h3>
+    <p>You can hover over a card to flip it over. </br> The format of the cards is described below.</p></div>
+    <h3> Front of card </h3>
+    <div class="card" style="background-color:${color}">
+        <div> <h2>Name of Opportunity</h2> <p> This is where the stories of users will be displayed in response to the question: \"Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?\". </p> </div>
+    </div>
+    <h3> Back of the card </h3>
+    <div class="card" style="background-color:${color}">
+        <div> 
+            <h4>Any helpful resources?</h4>
+            <p> This is where the users might share any resources they found helpful and/or found comfort in when dealing with opportunity barriers in place...  </p> 
+            <h4>Any advice for others?</h4>
+            <p> ...as well as share any advice for community members who might be experiencing similar things. </p>
+        </div>
+    </div>
+    `
+    document.getElementById("info").innerHTML = panelContent;
 }
 
 function fireFoxFixForFantasticFolks(theColor){
