@@ -86,8 +86,8 @@ header{
     z-index: 99999;
     background-color: white;
     padding: 10px;
-    grid-column: 2; /*! */
-    grid-row: 7; /*! */
+    grid-column: 1; /*! */
+    grid-row: 1; /*! */
     position: relative;
     font-size: 14px;
     box-shadow: 3px 3px 5px slategray;
