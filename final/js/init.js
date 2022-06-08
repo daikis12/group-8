@@ -173,7 +173,7 @@ function addFlipCardToPanel(data,color,disable=false) {
 function populateInfoPanel(){
     color = '#80C0C0'
     panelContent = 
-    `<div> <h1>Reading the Testimonies</h1></div>
+    `<div> <h1>How to Read the Testimonies</h1></div>
     <div> <h3>The testimonies submitted by users are displayed in a double-sided card format.</h3>
     <p>You can hover over a card to flip it over. </br> The format of the cards is described below.</p></div>
     <h3> Front of card </h3>
