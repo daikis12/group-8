@@ -78,7 +78,8 @@ header{
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: repeat(3, minmax(0, 1fr));
-    justify-items: start;  /* "left" can also work here */ 
+    justify-items: left;  /* "left" can also work here */ 
+    align-items: left;
 }
 
 #pages {
@@ -331,7 +332,7 @@ header{
     z-index: 99999;
     background-color: white;
     padding: 10px;
-    grid-column: 3; /*! */
-    grid-row: 2; /*! */
+    grid-column: 1; /*! */
+    grid-row: 1; /*! */
     position: relative;
 }
