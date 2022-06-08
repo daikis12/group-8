@@ -50,11 +50,11 @@ Since our targeted group is international students at UCLA, we hope to distribut
 ![Nameless testimonies](./final/nameless_testimonies.png)
 
 - This is a screenshot of feature to help users to better understand how to read the testimonies.
-![How to read the testimonies](./final/guideline_testimonies.png)
+![How to read the testimonies](./final/guideline_testimonials.png)
 
 ### An overview of hover over a state
 - This is a screenshot of our homepage when we hover over a state, in this case, California.
-![State testimonies](./final/actual_testimonies.png)
+![State testimonies](./final/actual_testimonials.png)
 
 - This is a screenshot of the testimonies where the career opportunity they obtained located at California.
 ![California testimonies](./final/california_testimonials.png)
