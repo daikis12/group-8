@@ -21,7 +21,7 @@ Getting an internship or a post-graduation career is one of the main objectives 
 
 ## 🧑‍💻 What technology was used?<a name="technology_Barriers_Across_Borders"></a> ##
 
-The website for the project was built using HTML, Javascript, and CSS. Leaflet, an open-source JavaScript library for mobile-friendly interactive maps, was used to create the map and display the user stories. Information was collected using Google Forms, and the locations were geocoded in Google Sheets. 
+The website for the project was built using HTML, Javascript, and CSS. Leaflet, an open-source JavaScript library for mobile-friendly interactive maps, was used to create the map and display the user stories. Papaparse was used to organize the CVS data that was collected by using Google Forms, and the locations were geocoded in Google Sheets. 
 
 ## ❔ How it can be repurposed?<a name="repurposed_Barriers_Across_Borders"></a> ##
 
