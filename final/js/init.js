@@ -123,7 +123,7 @@ function populatePanel(stateName){
         stateColor = getColor(statesCount[undefined]);
     }
     else{
-        title = stateName;
+        title = "Testimonies: " + stateName;
         data2loop = filterSurveyData(stateName);
         stateColor = getColor(statesCount[stateName])
     }
