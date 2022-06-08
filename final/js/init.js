@@ -226,12 +226,9 @@ if (event.target == modal2) {
     modal2.style.display = "none";
 }
 }
-// window.addEventListener("resize", scroller.resize);
 
+window.addEventListener("resize", scroller.resize);
 
-// function googleTranslateElementInit() {
-//   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-// }
 
 function closeModal(e){
     let parentDiv = e.target.parentElement.id
