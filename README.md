@@ -28,6 +28,8 @@ Graduating International Student: “As someone who didn’t know about anything
 
 ## 🧑‍💻 What technology was used?<a name="technology_Barriers_Across_Borders"></a> ##
 
+Our project uses a variety of programming languages, website services and libraries to create a platform that can magnifies the voice of the international student's community and 
+
 The website for the project was built using HTML, Javascript, and CSS. Leaflet, an open-source JavaScript library for mobile-friendly interactive maps, was used to create the map and display the user stories. Papaparse was used to organize the CVS data that was collected by using Google Forms, and the locations were geocoded in Google Sheets. 
 
 ## ❔ How it can be repurposed?<a name="repurposed_Barriers_Across_Borders"></a> ##
