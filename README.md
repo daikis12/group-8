@@ -9,7 +9,7 @@
 * [Who is being empowered?](#empowered_Barriers_Across_Borders)
 * [What technology was used?](#technology_Barriers_Across_Borders)
 * [How it can be repurposed?](#repurposed_Barriers_Across_Borders)
-* [Fetures & ScreenShots](#screenshots_Barriers_Across_Borders)
+* [Features & ScreenShots](#screenshots_Barriers_Across_Borders)
 
 ## 🌐 Objective<a name="objective_Barriers_Across_Borders"></a> ##
 
