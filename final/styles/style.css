@@ -129,9 +129,12 @@ header{
 .button {
     display: inline-block;
     border-radius: 20px;
-    background-color: #276477;
+    /* background-color: #276477; */
+    background-color: #99CCCC;
     border: none;
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
+    color: #1a1a1a;
+    font-weight: normal;
     text-align: center;
     font-size: 20px;
     padding: 10px;
@@ -144,7 +147,7 @@ header{
 .buttonActive {
     display: inline-block;
     border-radius: 20px;
-    background-color: #8da5d1;
+    background-color: #99CCCC;
     border: none;
     color: #FFFFFF;
     text-align: center;
