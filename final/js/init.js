@@ -265,15 +265,18 @@ function focusFeature(e) {
 
 function populatePanel(stateInfo){
     let data2loop = filterSurveyData(stateInfo);
-    /* data2loop.forEach(); */
-    panelContent = `<h3>${stateInfo}</h3><p> The experience of international students at UCLA who face career-related opportunity barriers </p>`
+    console.log(data2loop)
+    panelContent = `<div> <h3>${stateInfo}</h3><p> The experience of international students at UCLA who face career-related opportunity barriers </p </div>`
     panelContent += `<div class="pyro"><div class="before"></div><div class="after"></div></div>`
-    panelContent += `<div class="card"> ${stateInfo} </div>`
-    panelContent += `<div class="card"> ${stateInfo} </div>`
-    document.getElementById("dietakoyaki").innerHTML = panelContent;
+    data2loop.forEach(element => addtoPanel(element));
     console.log(panelContent)
 }
 
+function addtoPanel(data) {
+    console.log(data)
+    panelContent += `<div class="card"> ${data["Timestamp"]} </div>`
+    document.getElementById("dietakoyaki").innerHTML = panelContent;
+}
 
 
 map.doubleClickZoom.disable(); 
@@ -325,7 +328,35 @@ function processGeojson(targetGeoJson){
     
 }
 
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+// var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 
+// ocument.getElementById("myBtn").click() // simulate click to start modal
 
-
+window.onload = function() {
+    modal.style.display = "block";
+  };
