@@ -111,25 +111,25 @@ function onEachFeature(feature, layer) {
 }
 
 
-function addLegend(){
-    var legend = L.control({position: 'bottomright'});
+// function addLegend(){
+//     var legend = L.control({position: 'bottomright'});
 
-    legend.onAdd = function (map) {
+//     legend.onAdd = function (map) {
     
-        var div = L.DomUtil.create('div', 'info legend');
-        var grades = [0, 2, 4, 6];
+//         var div = L.DomUtil.create('div', 'info legend');
+//         var grades = [0, 2, 4, 6];
         
-        for (var i = 0; i < grades.length; i++) {
-            from = grades[i];
-            to = grades[i + 1];
+//         for (var i = 0; i < grades.length; i++) {
+//             from = grades[i];
+//             to = grades[i + 1];
     
-            labels.push(
-                '<span style="padding:5px ;background:' + getColor(from + 1) + '"></span> ' +
-                from + (to ? '&ndash;' + to : '+'));
-        }
+//             labels.push(
+//                 '<span style="padding:5px ;background:' + getColor(from + 1) + '"></span> ' +
+//                 from + (to ? '&ndash;' + to : '+'));
+//         }
     
-        div.innerHTML = labels.join('<br>');
-        return div;
-    };
-    legend.addTo(map);
-}
+//         div.innerHTML = labels.join('<br>');
+//         return div;
+//     };
+//     legend.addTo(map);
+// }

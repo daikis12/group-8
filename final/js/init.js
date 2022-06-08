@@ -82,7 +82,7 @@ function processData(results){
     mapData = filterData();
     surveyData = results.data;
     processGeojson(mapData);
-    addLegend();
+    // addLegend();
     map.fitBounds(geojson.getBounds());
     populatePanel(undefined);
     sidebar.open('testimonies');
