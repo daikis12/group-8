@@ -46,6 +46,22 @@ Since our targeted group is international students at UCLA, we hope to distribut
 ### An overview of our homepage
 ![Overview of the homepage](./final/homepage.png)
 
+- This is a screenshot of the testimonies of those who did not provide information of their career opportunity in United States. The testimonies are in the form of a flip card where front side of the card is the experience of challenges of finding employment/internship opportunities while the back side of the card is the helpful resources and advices from graduating international students.
+![Nameless testimonies](./final/nameless_testimonies.png)
+
+- This is a screenshot of feature to help users to better understand how to read the testimonies.
+![How to read the testimonies](./final/guideline_testimonies.png)
+
+### An overview of hover over a state
+- This is a screenshot of our homepage when we hover over a state, in this case, California.
+![State testimonies](./final/actual_testimonies.png)
+
+- This is a screenshot of the testimonies where the career opportunity they obtained located at California.
+![California testimonies](./final/california_testimonials.png)
+
+- This is a screenshot showing the number of respondents in the state that user hovers.
+![Number of respondents in the state](./final/number_respondents.png)
+
 ## 👥 Acknowledgements
 * This project was created for Asian Am 191A: Web Development and GIS for Social Change: Critical Data for Transforming Civil Society
 * Many thanks to Professor Albert Kochaphum for guiding us through every step for final project and teaching us such an interesting topic!
