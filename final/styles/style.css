@@ -29,7 +29,11 @@ header{
 
 #footer{
     grid-area: footer;
-    padding-top: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #B3D9D9;
 }
 
 .main{
@@ -58,7 +62,7 @@ header{
 
 .aboutContent{
     width: 70%;
-    background-color: #98d1c9;
+    background-color: #B3D9D9;
     margin: 0 auto; 
     padding: 50px;
     grid-row: 2;
