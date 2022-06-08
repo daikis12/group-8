@@ -4,10 +4,10 @@ The live demo can be found [here](https://lindseymardona.github.io/group-8/final
 
 ## Table of Contents ##
 * [Background](#background)
-* [Intent?](#intent)
+* [Intent](#intent)
 * [Technology Used](#technology)
 * [Future Repurposing](#repurposed)
-* [Features & ScreenShots](#screenshots)
+* [Features & Screenshots](#screenshots)
 
 ## 🌐 Background<a name="background"></a> ##
 
