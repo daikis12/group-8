@@ -38,7 +38,13 @@ Since our targeted group is international students at UCLA, we hope to distribut
 ## 🗺️ Web Features & Screenshots<a name="screenshots_Barriers_Across_Borders"></a> ##
 
 ### Screenshots
-![Overview of the webpage](./overview.png)
+
+### An overview of our webpage
+- Our webpage first briefly explains what our project is and the struggles of the community that we hope to empower.
+![Overview of the webpage](./final/overview.png)
+
+### An overview of our homepage
+![Overview of the homepage](./final/homepage.png)
 
 ## 👥 Acknowledgements
 * This project was created for Asian Am 191A: Web Development and GIS for Social Change: Critical Data for Transforming Civil Society
