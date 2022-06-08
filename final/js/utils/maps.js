@@ -118,16 +118,13 @@ function addLegend(){
     
         var div = L.DomUtil.create('div', 'info legend');
         var grades = [0, 2, 4, 6];
-        var labels = [];
-        var from, to;
-        // labels.push(`<i style="background:'#49e8df'"></i>) < 1`);
-        // labels.push(`<i style="background:'#8cdbf2'"></i>) 1-5`);
+        
         for (var i = 0; i < grades.length; i++) {
             from = grades[i];
             to = grades[i + 1];
     
             labels.push(
-                '<span style="padding:5px;background:' + getColor(from + 1) + '"></span> ' +
+                '<span style="padding:5px ;background:' + getColor(from + 1) + '"></span> ' +
                 from + (to ? '&ndash;' + to : '+'));
         }
     
@@ -136,4 +133,3 @@ function addLegend(){
     };
     legend.addTo(map);
 }
-
