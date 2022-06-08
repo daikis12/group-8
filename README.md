@@ -1,6 +1,6 @@
 # Barriers Across Borders
 ### by Daiki Saito, Siew Fen Eow (Angeline), Lindsey Mardona
-> We want to acknowledge that finding career opportunities in United States as an international student is significantly difficult due to the restriction of their immigration status. Therefore, we hope that our platform promote international students a sense of belonging when they are in United States and help them navigate through the difficult challenges of finding postgraduate opportunities as an international student. Therefore, we are interested in providing a platform for international students, where they can share their career-related experiences and offer advice to current and future international students. 
+> We want to acknowledge that finding career opportunities in United States as an international student is significantly difficult due to the restriction of their immigration status. We hope that our platform promote international students a sense of belonging when they are in United States and help them navigate through the difficult challenges of finding postgraduate opportunities as an international student. Therefore, we are interested in providing a platform for international students, where they can share their career-related experiences and offer advice to current and future international students. 
 >
 > Live demo [here](https://lindseymardona.github.io/group-8/final/index.html).
 
@@ -14,11 +14,12 @@
 
 ## 🌐 Objective<a name="objective_Barriers_Across_Borders"></a> ##
 
-The goal of our project is to highlight the experiences of the graduating international students at UCLA regarding their experience with career-related opportunity barriers. We hope that by sharing the experiences of individuals with similar circumstances will alleviate their distress through solidarity and information. We want to cultivate a sense of belonging for international students who are living in unfamiliar environment.
+The goal we hope to achieve through our project is to highlight the experiences of the graduating international students at UCLA regarding their experience with career-related opportunity barriers. Getting an internship or a post-graduation career is one of the main objectives of students at UCLA or any university. While everyone struggles at some level with these objectives, it is particularly difficult, if not impossible, for international students due to their immigration status. We are interested in cultivating a sense of belonging for the international students community as they experience challenges in a number of areas including social and cultural differences when they live in a foreign environment. We hope that by mapping the stories of graduating international students at UCLA and sharing the experiences of those who face barriers in career opportunities will alleviate their distress regarding their future and their immigration status through solidarity and information. Current and incoming international students at UCLA will have the chance to elevate their experiences at a foreign environment and navigate through career-related opportunities barriers in United States.
+
 
 ## 🧑‍🤝‍🧑 Who is being empowered?<a name="empowered_Barriers_Across_Borders"></a> ##
 
-Getting an internship or a post-graduation career is one of the main objectives of students at UCLA or any university. While everyone struggles at some level with these objectives, it is particularly difficult, if not impossible, for international students due to their immigration status. Our project sets out to help provide resources for this group of international students, where little or no resources exist today. This is important because it affords these students in the US the opportunities that might be part of their dream, their goals, or even how they want to start their lives in a new country. We have personally met many international students that stress more over finding an internship than getting a good grade in their class. We believe this project will have a significant impact in not only providing very important and useful information for finding an internship or job but also bringing the international community closer in our shared pursuits of a better life.
+Our project sets out to empower incoming and graduating international students as well as university staff member who provide resources and assistance to the international students at UCLA. This is important because it affords these students in the US the opportunities that might be part of their dream, their goals, or even how they want to start their lives in a new country. We have personally met many international students that stress more over finding an internship than getting a good grade in their class. We believe this project will have a significant impact in not only providing very important and useful information for finding an internship or job but also bringing the international community closer in our shared pursuits of a better life.
 
 ## 💪🏼 Empowered Users and Their Stories<a name="stories_Barriers_Across_Borders"></a> ##
 
@@ -26,9 +27,11 @@ Incoming International Student: “As an incoming international student, I do no
 
 Graduating International Student: “As someone who didn’t know about anything about employment restrictions for international students when I started UCLA, I want to let future international students know that creating connections among foreign students is key to finding an internship, and this website is useful for that”.
 
+
+
 ## 🧑‍💻 What technology was used?<a name="technology_Barriers_Across_Borders"></a> ##
 
-Our project uses a variety of programming languages, website services and libraries to create a platform that can magnifies the voice of the international student's community. These tools facilitate the interaction among foreign students and allow them to feel less along while navigating through the challenge of finding internships/employment oppportunities in the US. 
+Our project uses a variety of programming languages, website services and libraries to create a platform that can magnifies the voice of the international student's community and 
 
 The website for the project was built using HTML, Javascript, and CSS. Leaflet, an open-source JavaScript library for mobile-friendly interactive maps, was used to create the map and display the user stories. Papaparse was used to organize the CVS data that was collected by using Google Forms, and the locations were geocoded in Google Sheets. 
 
