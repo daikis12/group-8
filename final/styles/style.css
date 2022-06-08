@@ -75,6 +75,10 @@ header{
     height:75vh;
     grid-area: main_map;
     z-index: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    justify-items: start;  /* "left" can also work here */ 
 }
 
 #pages {
@@ -323,26 +327,11 @@ header{
     background-color: transparent;
   }
 
-  .info.legend {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    }
-
-    .legend {
-    background-color: “black”;
-    line-height: 25px;
-    color: #555;
-    width: auto;
-    }
-
-    .legend div {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 8px;
-    opacity: 0.7;
-    }
+#legend{
+    z-index: 99999;
+    background-color: white;
+    padding: 10px;
+    grid-column: 3; /*! */
+    grid-row: 2; /*! */
+    position: relative;
+}
