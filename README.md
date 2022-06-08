@@ -37,6 +37,9 @@ Since our targeted group is international students at UCLA, we hope to distribut
 
 ## 🗺️ Web Features & Screenshots<a name="screenshots_Barriers_Across_Borders"></a> ##
 
+### Screenshots
+![Overview of the webpage](./overview.png)
+
 ## 👥 Acknowledgements
 * This project was created for Asian Am 191A: Web Development and GIS for Social Change: Critical Data for Transforming Civil Society
 * Many thanks to Professor Albert Kochaphum for guiding us through every step for final project and teaching us such an interesting topic!
