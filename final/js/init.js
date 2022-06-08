@@ -130,7 +130,9 @@ function populatePanel(stateName){
     
     console.log('data2loop')
     console.log(data2loop)
-    panelContent = `<div> <h1>${title}</h1> <h4> Hover over a card to read more from a testimony. </h4> </div>`
+    panelContent = `<div> <h1>${title}</h1> 
+                    Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?
+                    <h4> Hover over a card to read more from a testimony. </h4> </div>`
     panelContent += `<div class="pyro"><div class="before"></div><div class="after"></div></div>`
     if(stateName == undefined){data2loop.forEach(element => addFlipCardToPanel(element,stateColor, disable=true));}
     else{data2loop.forEach(element => addFlipCardToPanel(element,stateColor));}
