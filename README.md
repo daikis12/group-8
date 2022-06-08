@@ -1,6 +1,6 @@
 # Barriers Across Borders
 ### by Daiki Saito, Siew Fen Eow (Angeline), Lindsey Mardona
-> Our project aims to provide a platform with international students, where they can share their experiences and give advice to current and future students about internship and employment opportunities in the United States as a student-visa holder. We recognize that finding those opportunities, on top of being a foreign student, living in an unfamiliar environment, is a significant challenge for many international students. Therefore, we hope that our platform allows students to feel connected to other students who have gone through the same process and helps them navigate through the difficult challenge of finding postgraduate opportunities as a foreign student. Our map contains information about internship and career opportunities that international students have attained, and it is specific to each state in the country. This allows students to learn about others’ experiences in specific states in which they are interested in pursuing postgraduate careers. 
+> We want to acknowledge that finding career opportunities in United States as an international student is significantly difficult due to the restriction of their immigration status. Therefore, we hope that our platform promote international students a sense of belonging when they are in United States and help them navigate through the difficult challenges of finding postgraduate opportunities as an international student. Therefore, we are interested in providing a platform for international students, where they can share their career-related experiences and offer advice to current and future international students. 
 >
 > Live demo [here](https://lindseymardona.github.io/group-8/final/index.html).
 
@@ -14,7 +14,7 @@
 
 ## 🌐 Objective<a name="objective_Barriers_Across_Borders"></a> ##
 
-We hope that by mapping the stories of graduating international students at UCLA and sharing the experiences of those who face career-related opportunity barriers will alleviate their distress regarding their future and their immigration status through solidarity and information. We aim to achieve our goal by creating a map for international students to share their experiences with employment opportunities in the US.
+The goal of our project is to highlight the experiences of the graduating international students at UCLA regarding their experience with career-related opportunity barriers. We hope that by sharing the experiences of individuals with similar circumstances will alleviate their distress through solidarity and information. We want to cultivate a sense of belonging for international students who are living in unfamiliar environment.
 
 ## 🧑‍🤝‍🧑 Who is being empowered?<a name="empowered_Barriers_Across_Borders"></a> ##
 
