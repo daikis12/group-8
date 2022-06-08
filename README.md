@@ -7,6 +7,7 @@
 ## Table of Contents ##
 * [Objective](#objective_Barriers_Across_Borders)
 * [Who is being empowered?](#empowered_Barriers_Across_Borders)
+* [Empowered Users and Their Stories](#stories_Barriers_Across_Borders)
 * [What technology was used?](#technology_Barriers_Across_Borders)
 * [How it can be repurposed?](#repurposed_Barriers_Across_Borders)
 * [Features & ScreenShots](#screenshots_Barriers_Across_Borders)
@@ -19,6 +20,12 @@ We hope that by mapping the stories of graduating international students at UCLA
 
 Getting an internship or a post-graduation career is one of the main objectives of students at UCLA or any university. While everyone struggles at some level with these objectives, it is particularly difficult, if not impossible, for international students due to their immigration status. Our project sets out to help provide resources for this group of international students, where little or no resources exist today. This is important because it affords these students in the US the opportunities that might be part of their dream, their goals, or even how they want to start their lives in a new country. We have personally met many international students that stress more over finding an internship than getting a good grade in their class. We believe this project will have a significant impact in not only providing very important and useful information for finding an internship or job but also bringing the international community closer in our shared pursuits of a better life.
 
+## 💪🏼 Empowered Users and Their Stories<a name="stories_Barriers_Across_Borders"></a> ##
+
+Incoming International Student: “As an incoming international student, I do not know anything about getting an internship in the United States. Being able to learn about the experiences of other foreign students through the website is very helpful”. 
+
+Graduating International Student: “As someone who didn’t know about anything about employment restrictions for international students when I started UCLA, I want to let future international students know that creating connections among foreign students is key to finding an internship, and this website is useful for that”.
+
 ## 🧑‍💻 What technology was used?<a name="technology_Barriers_Across_Borders"></a> ##
 
 The website for the project was built using HTML, Javascript, and CSS. Leaflet, an open-source JavaScript library for mobile-friendly interactive maps, was used to create the map and display the user stories. Papaparse was used to organize the CVS data that was collected by using Google Forms, and the locations were geocoded in Google Sheets. 
@@ -30,6 +37,6 @@ Since our targeted group is international students at UCLA, we hope to distribut
 
 ## 🗺️ Web Features & Screenshots<a name="screenshots_Barriers_Across_Borders"></a> ##
 
-## Acknowledgements
+## 👥 Acknowledgements
 * This project was created for Asian Am 191A: Web Development and GIS for Social Change: Critical Data for Transforming Civil Society
 * Many thanks to Professor Albert Kochaphum for guiding us through every step for final project and teaching us such an interesting topic!
