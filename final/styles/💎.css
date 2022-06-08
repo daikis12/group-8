@@ -31,7 +31,7 @@
     height: 100%;
     padding:10px;
     /* background: linear-gradient(45deg,#e8f8fc, #bae9f7, #8cdbf2 , #5ecded); */
-    background-color: #74aab9;
+    background-color: #80C0C0;
     background-size: 600% 100%;
     animation: gradient 16s linear infinite;
     animation-direction: alternate;

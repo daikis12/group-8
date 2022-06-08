@@ -33,10 +33,10 @@ var sidebar = L.control.sidebar({
 
 
 var panelContent = {
-    id: 'dietakoyaki',                     // UID, used to access the panel
-    tab: '<i class="fa fa-bars"></i>',  // content can be passed as HTML string,
+    id: 'testimonies',                     // UID, used to access the panel
+    tab: '<i class="fa fa-user"></i>',  // content can be passed as HTML string,
     pane: ':(',        // DOM elements can be passed, too
-    title: 'Dietakoyaki',              // an optional pane header
+    title: 'Testimonies',              // an optional pane header
     position: 'top'                  // optional vertical alignment, defaults to 'top'
 };
 
@@ -50,7 +50,6 @@ var panelContent2 = {
 
 sidebar.addPanel(panelContent);
 sidebar.addPanel(panelContent2);
-
 
 function loadData(url){
     Papa.parse(url, {
@@ -67,7 +66,6 @@ function processData(results){
     console.log(results)
     results.data.forEach(data => {
         if(!(data['lat'] == 0 && data['lng'] == 0)){
-            // console.log(data)
             // 🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌
             statesCount[data['state']] = (statesCount[data['state']] || 0) + 1 ;
             // ( う-´)づ︻╦̵̵̿╤── \(˚☐˚”)/ 
@@ -86,6 +84,8 @@ function processData(results){
     processGeojson(mapData);
     addLegend();
     map.fitBounds(geojson.getBounds());
+    populatePanel(undefined);
+    sidebar.open('testimonies');
 }
 
 loadData(dataUrl)
@@ -112,16 +112,14 @@ let sidebarStatus = false;
 
 
 function populatePanel(stateName){
-    // lets revisit this later
     let data2loop;
     let stateColor;
     let title;
 
     if(stateName == undefined){
-        console.log('undefined!!!!!!!!!!!!!!!!!!!!!!!!!')
         title = 'Testimonies';
         data2loop = filterSurveyData(undefined);
-        stateColor = getColor(statesCount['null']);
+        stateColor = getColor(statesCount[undefined]);
     }
     else{
         title = stateName;
@@ -138,7 +136,6 @@ function populatePanel(stateName){
     
 
     fireFoxFixForFantasticFolks(stateColor)
-    // console.log(panelContent)
 }
 
 
@@ -169,7 +166,7 @@ function addFlipCardToPanel(data,color,disable=false) {
         </div>
     </div>`
     fireFoxFixForFantasticFolks(color)
-    document.getElementById("dietakoyaki").innerHTML = panelContent;
+    document.getElementById("testimonies").innerHTML = panelContent;
 }
 
 function fireFoxFixForFantasticFolks(theColor){

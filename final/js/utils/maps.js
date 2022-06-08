@@ -40,10 +40,11 @@ function filterSurveyData(state2filter){
 
 // get color depending on respondent count value
 function getColor(d) {
-    return d > 6  ? '#01aea5' :
-        d > 4  ? '#01e3d8' :
-        d > 2   ? '#8cdbf2' :
-        d > 0   ? '#bcfffb' : '#d7fffd';
+    return d > 8 ? '#007373' : 
+        d > 6  ? '#269393' :
+        d > 4  ? '#4DA6A6' :
+        d > 2   ? '#73B9B9' :
+        d > 0   ? '#99CCCC' : '#BFDFDF';
 }
 
 function style(feature) {
@@ -88,15 +89,12 @@ function focusFeature(e) {
     if (sidebarStatus == false){
         sidebarStatus = true;
         populatePanel(clickedName);
-        // populatePanel(clickedName)
-        sidebar.open('dietakoyaki');
+        sidebar.open('testimonies');
     }
     else{
         sidebarStatus = false;
         sidebar.close();
         populatePanel(undefined);
-        // sidebar.open('whatsup')
-        // console.log('in undefined')
         map.fitBounds(geojson.getBounds());
     }
 }
@@ -129,7 +127,7 @@ function addLegend(){
             to = grades[i + 1];
     
             labels.push(
-                '<i style="padding:5px;background:' + getColor(from + 1) + '"></i> ' +
+                '<span style="padding:5px;background:' + getColor(from + 1) + '"></span> ' +
                 from + (to ? '&ndash;' + to : '+'));
         }
     
