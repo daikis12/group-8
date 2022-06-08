@@ -17,6 +17,8 @@ L.tileLayer('https://{s}.tile.jawg.io/jawg-light/{z}/{x}/{y}{r}.png?access-token
 	accessToken: 'LKTW24tyB1L58EkjGQmMI14e8Mv94UwoVCgXguxoILneySdi1Q3iyB4wGvg1U8tY'
 }).addTo(map);
 
+let nullStates = {"properties":{"name":"null","testimonyCount":0}};
+
 // let statesLayer = L.featureGroup()
 
 // statesLayer.addLayer(L.geoJson(statesData))
@@ -49,31 +51,6 @@ var panelContent2 = {
 sidebar.addPanel(panelContent);
 sidebar.addPanel(panelContent2);
 
-// Get the modal
-var modal = document.getElementById("surveyModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("surveyBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "grid";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
 function loadData(url){
     Papa.parse(url, {
@@ -90,7 +67,7 @@ function processData(results){
     console.log(results)
     results.data.forEach(data => {
         if(!(data['lat'] == 0 && data['lng'] == 0)){
-            console.log(data)
+            // console.log(data)
             // 🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌
             statesCount[data['state']] = (statesCount[data['state']] || 0) + 1 ;
             // ( う-´)づ︻╦̵̵̿╤── \(˚☐˚”)/ 
@@ -99,14 +76,165 @@ function processData(results){
             // statesData.features.forEach(state => addTestimonyCounts(state));
             // state.properties.name == [data['state']] += 1;
         }
+        else{
+            statesCount[data['null']] = (statesCount[data['null']] || 0) + 1 ;
+        }
     })
     countTestimonies(statesCount);
     mapData = filterData();
     surveyData = results.data;
     processGeojson(mapData);
-    addLegend()
+    addLegend();
     map.fitBounds(geojson.getBounds());
 }
+
+loadData(dataUrl)
+
+// control that shows state info on hover
+var info = L.control({position: 'bottomleft'});
+
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info');
+    this.update();
+    return this._div;
+};
+
+info.update = function (props) {
+    console.log(props)
+    this._div.innerHTML = '<div class="propUp"><h4>Work Opportunities by State</h4>' +  (props ?
+        '<b>' + props.name + '</b><br /><div class="animate-character">' + props.testimonyCount + ' respondent(s)</div>' : 'Hover over a state</div>');
+};
+
+info.addTo(map);
+
+var geojson;
+let sidebarStatus = false;
+
+
+function populatePanel(stateName){
+    // lets revisit this later
+    let data2loop;
+    let stateColor;
+    let title;
+
+    if(stateName == undefined){
+        console.log('undefined!!!!!!!!!!!!!!!!!!!!!!!!!')
+        title = 'Testimonies';
+        data2loop = filterSurveyData(undefined);
+        stateColor = getColor(statesCount['null']);
+    }
+    else{
+        title = stateName;
+        data2loop = filterSurveyData(stateName);
+        stateColor = getColor(statesCount[stateName])
+    }
+    
+    console.log('data2loop')
+    console.log(data2loop)
+    panelContent = `<div> <h1>${title}</h1> <h4> Hover over a card to read more from a testimony. </h4> </div>`
+    panelContent += `<div class="pyro"><div class="before"></div><div class="after"></div></div>`
+    if(stateName == undefined){data2loop.forEach(element => addFlipCardToPanel(element,stateColor, disable=true));}
+    else{data2loop.forEach(element => addFlipCardToPanel(element,stateColor));}
+    
+
+    fireFoxFixForFantasticFolks(stateColor)
+    // console.log(panelContent)
+}
+
+
+function addFlipCardToPanel(data,color,disable=false) {
+    console.log(color)
+    let title;
+    if (disable==true){
+        
+        title=''
+    }
+    else{
+        title = `Story from:<h2>${data["If applicable, what companies did/do you work under and what were/are your job titles? "]}</h2>`
+    }
+
+    panelContent += `
+    <div class="flip-card" style="background-color:${color}">
+        <div class="flip-card-inner">
+            <div class="flip-card-front style="background-color:${color}">
+                ${title}
+                <p class="left">\"${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}\"</p>
+            </div>
+            <div class="flip-card-back style="background-color:${color}">
+                Any helpful resources?
+                <p class="left">${data["Are there any people, campus resources, or online resources that you have found helpful and/or utilized to find employment/internship opportunities in the US?"]}</p>
+                Any advice for others?
+                <p class="left">${data["Do you have any advice for current international students at UCLA or is there anything else you'd like to share about your experiences? "]}</p>
+            </div>
+        </div>
+    </div>`
+    fireFoxFixForFantasticFolks(color)
+    document.getElementById("dietakoyaki").innerHTML = panelContent;
+}
+
+function fireFoxFixForFantasticFolks(theColor){
+    const backOfcards = document.querySelectorAll('.flip-card-back');
+    backOfcards.forEach(ffCard => {
+    ffCard.style.backgroundColor = theColor;
+    });
+}
+map.doubleClickZoom.disable(); 
+
+map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+
+function addCardToPanel(data) {
+    console.log(data)
+
+    panelContent += `<div class="card">
+    <h3>Stories from: ${data["If applicable, what companies did/do you work under and what were/are your job titles? "]}</h3>
+    <p class="left">\"${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}\"</p>
+    <p class="left">Any helpful resource: ${data["Are there any people, campus resources, or online resources that you have found helpful and/or utilized to find employment/internship opportunities in the US?"]}</p>
+    <p class="left">Advice for current international students: ${data["Do you have any advice for current international students at UCLA or is there anything else you'd like to share about your experiences? "]}</p>
+    </div>`
+
+    document.getElementById("dietakoyaki").innerHTML = panelContent;
+}
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+
+// Get the modal
+var modal2 = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal2.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  
+
+window.onload = function() {
+    modal2.style.display = "block";
+  };
+  
+window.onclick = function(event) {
+if (event.target == modal2) {
+    modal2.style.display = "none";
+}
+}
+// window.addEventListener("resize", scroller.resize);
+
+
+// function googleTranslateElementInit() {
+//   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+// }
 
 function closeModal(e){
     let parentDiv = e.target.parentElement.id
@@ -127,232 +255,26 @@ document.body.addEventListener('click', function(e) {
 });
 // document.iframe.addEventListener('click', closeModal, true); 
 
-loadData(dataUrl)
 
-// let searchUrl = "https://results.dogpile.com/serp?qc=images&q=naruto"
-// fetch(searchUrl,{
-//     method: "GET",
-//     headers: {"Accept": "text/html",
-//     "User-Agent": "Chrome"}})
-//     .then(response => response.json())
-//     .then(json => console.log('yoooooooooooo!'))
+// Get the modal
+var modal = document.getElementById("surveyModal");
 
-// let geoJsonStyle = {
-//     weight: 2,
-//     opacity: 1,
-//     color: 'gray',
-//     fillOpacity:0.0
-// }
+// Get the button that opens the modal
+var btn = document.getElementById("surveyBtn");
 
-// let geojson
-// fetch("js/countries.geo.js") 
-//     .then(response =>{ 
-//         return response.json();})
-//         .then(data =>{
-//             geojson = L.geoJson(data,{style:geoJsonStyle,onEachFeature: onEachFeature}).addTo(map)
-//             console.log('loading geojson')
-//         })
-//         // Basic Leaflet method to add GeoJSON data
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-// function highlightFeature(e) {
-//     var layer = e.target;
-
-//     layer.setStyle({
-//         weight: 5,
-//         // fillColor: 'none',
-//         color: 'crimson', // the blood of daiki
-//         dashArray: '',
-//         fillOpacity: 0.0
-
-//     });
-
-//     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-//         layer.bringToFront();
-//     }
-// }
-
-// function resetHighlight(e) {
-//     geojson.resetStyle(e.target);
-// }
-
-// function onEachFeature(feature, layer) {
-//     layer.on({
-//         mouseover: highlightFeature,
-//         mouseout: resetHighlight,
-//         // click: zoomToFeature
-//     });
-// }
-
-// control that shows state info on hover
-var info = L.control({position: 'bottomleft'});
-
-info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info');
-    this.update();
-    return this._div;
-};
-
-info.update = function (props) {
-    console.log(props)
-    this._div.innerHTML = '<div class="propUp"><h4>Work Opportunities by State</h4>' +  (props ?
-        '<b>' + props.name + '</b><br /><div class="animate-character">' + props.testimonyCount + ' respondent(s)</div>' : 'Hover over a state</div>');
-};
-
-info.addTo(map);
-
-var geojson;
-
-// get color depending on respondent count value
-function getColor(d) {
-    return d > 6  ? '#01aea5' :
-        d > 4  ? '#01e3d8' :
-        d > 2   ? '#8cdbf2' :
-        d > 0   ? '#bcfffb' : '#d7fffd';
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "grid";
 }
 
-function style(feature) {
-    return {
-        weight: 2,
-        opacity: 1,
-        color: 'white',
-        dashArray: '3',
-        fillOpacity: 0.7,
-        fillColor: getColor(feature.properties.testimonyCount)
-    };
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
 }
 
-function highlightFeature(e) {
-    var layer = e.target;
-
-    layer.setStyle({
-        weight: 3,
-        color: '#666',
-        dashArray: '',
-        fillOpacity: 0.7
-    });
-
-    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
-    }
-
-    info.update(layer.feature.properties);
-}
-
-function resetHighlight(e) {
-    geojson.resetStyle(e.target);
-    info.update();
-}
-
-let sidebarStatus = false;
-
-function focusFeature(e) {
-    map.fitBounds(e.target.getBounds());
-    let clickedName = e.target.feature.properties.name;
-    console.log(e.target.feature.properties.name)
-
-    if (sidebarStatus == false){
-        sidebarStatus = true;
-        populatePanel(clickedName)
-        // populatePanel(clickedName)
-        sidebar.open('dietakoyaki');
-    }
-    else{
-        sidebarStatus = false;
-        sidebar.close();
-        map.fitBounds(geojson.getBounds());
-    }
-}
-
-function populatePanel(stateName){
-    let data2loop = filterSurveyData(stateName);
-    let stateColor = getColor(statesCount[stateName])
-    console.log(data2loop)
-    panelContent = `<div> <h1>${stateName}</h1> <h4> Hover over a card to read more from a testimony. </h4> </div>`
-    panelContent += `<div class="pyro"><div class="before"></div><div class="after"></div></div>`
-    data2loop.forEach(element => addFlipCardToPanel(element,stateColor));
-    console.log(panelContent)
-}
-
-
-function addFlipCardToPanel(data,color) {
-    console.log(data)
-
-    panelContent += `
-    <div class="flip-card" style="background-color:${color}">
-        <div class="flip-card-inner">
-            <div class="flip-card-front style="background-color:${color}">
-                Story from:
-                <h2>${data["If applicable, what companies did/do you work under and what were/are your job titles? "]}</h2>
-                <p class="left">\"${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}\"</p>
-            </div>
-            <div class="flip-card-back style="background-color:${color}">
-                Any helpful resources?
-                <p class="left">${data["Are there any people, campus resources, or online resources that you have found helpful and/or utilized to find employment/internship opportunities in the US?"]}</p>
-                Any advice for others?
-                <p class="left">${data["Do you have any advice for current international students at UCLA or is there anything else you'd like to share about your experiences? "]}</p>
-            </div>
-        </div>
-    </div>`
-
-    document.getElementById("dietakoyaki").innerHTML = panelContent;
-}
-
-
-
-function addCardToPanel(data) {
-    console.log(data)
-
-    panelContent += `<div class="card">
-    <h3>Stories from: ${data["If applicable, what companies did/do you work under and what were/are your job titles? "]}</h3>
-    <p class="left">\"${data["Have you faced any challenges finding employment/internship opportunities in the US because of your immigration status?"]}\"</p>
-    <p class="left">Any helpful resource: ${data["Are there any people, campus resources, or online resources that you have found helpful and/or utilized to find employment/internship opportunities in the US?"]}</p>
-    <p class="left">Advice for current international students: ${data["Do you have any advice for current international students at UCLA or is there anything else you'd like to share about your experiences? "]}</p>
-    </div>`
-
-
-    document.getElementById("dietakoyaki").innerHTML = panelContent;
-}
-
-
-map.doubleClickZoom.disable(); 
-
-function onEachFeature(feature, layer) {
-    layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        click: focusFeature
-    });
-}
-
-
-
-map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
-
-function addLegend(){
-    var legend = L.control({position: 'bottomright'});
-
-    legend.onAdd = function (map) {
-    
-        var div = L.DomUtil.create('div', 'info legend');
-        var grades = [0, 2, 4, 6];
-        var labels = [];
-        var from, to;
-        // labels.push(`<i style="background:'#49e8df'"></i>) < 1`);
-        // labels.push(`<i style="background:'#8cdbf2'"></i>) 1-5`);
-        for (var i = 0; i < grades.length; i++) {
-            from = grades[i];
-            to = grades[i + 1];
-    
-            labels.push(
-                '<i style="padding:5px;background:' + getColor(from + 1) + '"></i> ' +
-                from + (to ? '&ndash;' + to : '+'));
-        }
-    
-        div.innerHTML = labels.join('<br>');
-        return div;
-    };
-    legend.addTo(map);
-}
 
 function processGeojson(targetGeoJson){
     /* global statesData */
@@ -361,37 +283,4 @@ function processGeojson(targetGeoJson){
         onEachFeature: onEachFeature
     }).addTo(map);
     
-}
-
-// Get the modal
-var modal2 = document.getElementById("myModal");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal2.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal2) {
-    modal2.style.display = "none";
-  }
-}
-
-window.onload = function() {
-    modal2.style.display = "block";
-  };
-
-// window.addEventListener("resize", scroller.resize);
-
-
-// function googleTranslateElementInit() {
-//   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-// }
-
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
